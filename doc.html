@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+</head>
+<body>
+
+    <div id="container"></div>
+    <div id="someID"></div>
+
+    <p id='para1' onmouseenter="eventHandler();" onmouseleave="mouseLeave()">Hover Over Me</p>
+
+     <ul id="mylist" onclick="appendItem();"> <li>A list item</li>  </ul>
+
+     <p id="p1" name="myfavep" data-info="I'm a paragraph"> Hello World</p>
+
+    <!-- Change element style -->
+
+     <style>
+        .reddemo {
+            color: red;
+        }
+    </style>
+
+
+    <!-->change text-->
+
+    <input id='chgT' onclick="change();" type="button" value="Text"></input>
+
+
+    
+
+
+
+    
+
+
+
+
+        
+
+
+    <script>
+
+
+
+
+
+        //Create new text
+            var contr = document.getElementById("container");
+            contr.innerHTML = "New Content!";
+        // create new paragraphe
+            var para = document.createElement("p");
+            var elem = document.getElementById("container").appendChild(para);
+        // create text to new paragraphe
+            var textnode = document.createTextNode("Hello world!");
+            para.appendChild(textnode);
+
+        //create button 
+        var btn = document.createElement("BUTTON");
+        var t = document.createTextNode("Click me!");
+        btn.appendChild(t);
+        document.body.appendChild(btn);  
+
+        //Create a paragraph element that changes its text when you hover over it. 
+
+    var eventHandler = function() {
+    document.getElementById('para1').innerHTML = "Thank You!";
+    }
+
+    var mouseLeave = function() {
+    document.getElementById('para1').innerHTML = "Hover over me"
+    }
+        //Add element to the list when we hover it
+    
+        function appendItem() {
+            var list = document.getElementById('mylist');
+            var nodetext = document.createTextNode("Another list item");
+            var item = document.createElement('li');
+            item.appendChild(nodetext);
+            list.appendChild(item);
+
+    }
+    
+        //add atributes
+
+        var para = document.getElementById('p1')
+        var attr = document.createAttribute("class");
+        attr.value = "reddemo";
+        para.attributes.setNamedItem(attr);
+        //or this above instead of the 3 lines above.
+        para.setAttribute('class', 'reddemo');
+
+
+
+        /* in JavaScript create an anchor element, give it some text saying "Elevation's Website"
+         then give it an href attribute so that when the user clicks on it they are taken to "www.elevationacademy.co".*/
+
+        var a = document.createElement('a');
+        var linkText = document.createTextNode("my title text");
+        a.appendChild(linkText);
+        a.title = "my title text";
+        a.href = "https://en.elevation.academy/";
+        a.text = "Elevation's Website"
+        document.body.appendChild(a);
+
+
+        //Change element style
+        document.getElementById('p1').style.backgroundColor = "aqua";
+
+        /*Create a button that changes text when you click it and changes back when you click it again. 
+        Hint: one possible solution uses an if statement.*/
+        function change() 
+        {
+            var elem = document.getElementById("chgT");
+            if (elem.value=="Text") elem.value = "Hello";
+            else elem.value = "Text";
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
+
